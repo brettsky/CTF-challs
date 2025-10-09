@@ -1,0 +1,8 @@
+Web 15 - Web Technologies: External Resources
+
+wget -r -l 1 -np http://web-15.challs.olicyber.it/ | cat web-15.challs.olicyber.it/* | grep -oP 'flag\{[^}]+\}'
+
+I use wget cat and grep to get the files associated with that url 
+
+I then manually looked through the 4 downloaded files to find it in dynamic.js "http://web-15.challs.olicyber.it/dynamic.js
+"flag{5n00ping_4r0und}
