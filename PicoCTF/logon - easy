@@ -6,4 +6,4 @@ Upon logon we see that a login using admin admin works
 
 upon further investigation we see that we have an admin cookie which is currently set to false. 
 
-setting it to true gives us the flag.
+setting it to true gives us the flag.picoCTF{th3_c0nsp1r4cy_l1v3s_d1c24fef}
