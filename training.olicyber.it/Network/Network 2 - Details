@@ -1,0 +1,10 @@
+This challenge requires you to analyze some packages in more detail. Specifically, the flag is in the following format:
+
+flag{Source_MAC_address/data_bytes_length}
+
+The information needed for the flags is taken from frame number 4, the first one containing the session data TCP.
+
+
+Step 1.  Find the source mac Source_MAC_address which is in the Ethernet II part of the packet 26:0e:ad:ef:c6:65
+
+Step 2 find the data bytes length in the data part of the packet (63 bytes)
