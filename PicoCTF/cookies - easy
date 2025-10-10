@@ -1,0 +1,9 @@
+Given  the challenge name is cookies we see that we only have one cookie in our browser 
+
+at the homepage it has the value of -1 
+
+when we search for snickerdoodle it changes to 0 
+
+we continue counting up until we find the flag at cookie 18
+
+picoCTF{3v3ry1_l0v3s_c00k135_cc9110ba}
