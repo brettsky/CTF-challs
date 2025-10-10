@@ -1,0 +1,21 @@
+This series of challenges will introduce some topics necessary to solve network security challenges.
+
+To solve this challenge, you need to understand what a file is pcapand how to analyze it.
+
+Among the various ways to analyze files pcap, an excellent recommended software with a graphical interface is Wireshark .
+
+To install Wireshark on Linux, simply install the package from the standard repositories (e.g. sudo apt install wireshark).
+
+The versions for Windows and macOS are available at the following link .
+
+The flag for this challenge is found inside the packet TCPfollowing the handshake.
+
+
+
+Step 1. Open the PCAP file in wire shark
+
+Step 2. Find the Packet following the TCP handshak (Syn - syn ack - ack )
+
+Step 3. Inspect the data oon the hex editor in wireshark. 
+
+flag{Y0u_kn0w_Wh4t_a_Pc4p_1s}
