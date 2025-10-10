@@ -1,0 +1,12 @@
+This is the first in a series of challenges that will address the use of expressions to filter files pcap/pcapng, in order to obtain a smaller, more interesting set of packages.
+
+To obtain the flag for this first challenge, simply filter the packets based on the protocol. In particular, by filtering only the packets that use the protocol, HTTPthe flag will be found in a custom request header.
+
+To best learn how to solve this series of challenges, it is recommended to read the Wireshark documentation regarding filters.
+
+
+
+Step 1: add a filter to wireshark to only search for http traffic tcp.port == 80 
+    We see one http stream
+
+Step 2: Inspect the HTTP data of the Get request to see the flag Flag-String: flag{L3aRn1N9_4b0uT_F1lter5_p1}
