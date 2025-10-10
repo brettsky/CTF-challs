@@ -1,0 +1,9 @@
+Description
+The factory is hiding things from all of its users. Can you login as Joe and find what they've been looking at?
+
+
+Upon logon we see that a login using admin admin works 
+
+upon further investigation we see that we have an admin cookie which is currently set to false. 
+
+setting it to true gives us the flag.
