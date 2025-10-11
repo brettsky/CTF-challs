@@ -5,9 +5,9 @@ Let me in. Let me iiiiiiinnnnnnnnnnnnnnnnnnnn http://mercury.picoctf.net:38322/"
 
 
 
-Same thing editing http headers via curl. 
+editing http headers via curl. 
 
-We follow the trail of cookies to get to the right path
+We follow the trail of headers and error messages to get to the right path. This teached
 
 1. a simple curl gives us "Only people who use the official PicoBrowser are allowed on this site!
 
@@ -87,4 +87,4 @@ in this challenge we had to send a chain of curl commands and learned about a fe
 
 
 
-     "Those gosh darn Swedes that speak Swedish from 2018 using the PicoBrowser that were previously on this site never want to be tracked."
+     "Those gosh darn Swedes that speak Swedish from 2018 using PicoBrowser that were previously on this site never want to be tracked."
