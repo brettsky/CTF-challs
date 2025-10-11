@@ -577,3 +577,10 @@ http://web-16.challs.olicyber.it/
 
 We have completed this challenge using a very complex and simple script
 
+
+## Note 
+
+
+
+we are also provided the web server code in challenge.py. We can see that the challenge is written in flask and spins up a web page with 1, 10000000 pages and places the flag in one
+
