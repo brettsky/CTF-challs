@@ -1,85 +1,54 @@
 #!/usr/bin/env python3
-# aggressive low-latency solver for the "sum the list" challenge
-
-from pwn import remote, context
-import re
-import time
-
-context.log_level = "error"   # quieter, faster
+# Import the pwntools library
+from pwn import *
+import ast
 
 HOST = "software-17.challs.olicyber.it"
 PORT = 13000
+# Connect to the server
+r = remote(HOST, PORT)
 
-# require at least one digit inside brackets (non-greedy)
-BRACKET_RE = re.compile(rb'\[[^\]]*\d[^\]]*\]', re.DOTALL)
-INT_RE = re.compile(rb'[-+]?\d+')
+def add_numbers(resp_bytes):
+    string = resp_bytes.decode("UTF-8")
+    num_list = ast.literal_eval(string)
+    print(num_list)
+    sum_answer = str(sum(num_list)).encode()
+    return sum_answer
 
-def sum_from_bytes(b):
-    nums = INT_RE.findall(b)
-    return sum(int(x) for x in nums)
+def recv_isolate_num_list():
+    isolate_pre = r.recvuntil(b"numeri\n")
+    print(isolate_pre)
+    isolate_list = r.recvuntil(b"]")
+    print(isolate_list)
+    return isolate_list
 
-def run_fast():
-    r = remote(HOST, PORT, timeout=3)
-    buf = bytearray()
-    rounds = 0
-    tstart = time.time()
+def send_answer(answer_bytes):
+    print(answer_bytes)
+    r.sendline(answer_bytes)
 
-    try:
-        # read banner quickly (don't wait long)
-        try:
-            _ = r.recvuntil(b'Invia', timeout=1)
-        except Exception:
-            _ = r.recv(1024, timeout=0.5) or b''
-        # send starter
-        r.sendline(b"x")
-
-        # main fast loop: stop after 10 rounds or on EOF/close
-        while rounds < 10:
-            # tight-read small timeout for low latency
-            try:
-                chunk = r.recv(timeout=0.05)  # very small timeout
-                if chunk:
-                    buf.extend(chunk)
-            except Exception:
-                # no data this tick
-                pass
-
-            # look for bracketed array
-            m = BRACKET_RE.search(buf)
-            if not m:
-                # keep the trailing bytes only to prevent buf growth
-                if len(buf) > 32768:
-                    buf = buf[-8192:]
-                continue
-
-            arr = bytes(m.group(0))
-            nums = INT_RE.findall(arr)
-            if not nums:
-                # remove matched slice and continue (shouldn't happen due to regex)
-                buf = buf[m.end():]
-                continue
-
-            ans = sum(int(x) for x in nums)
-            # send answer immediately
-            r.sendline(str(ans).encode())
-            rounds += 1
-            # remove processed slice
-            buf = buf[m.end():]
-
-            # minimal status output (won't slow down much)
-            print(f"[{rounds}] answered {ans} (elapsed {time.time()-tstart:.3f}s)")
-
-        # attempt to read final output (brief window)
-        try:
-            tail = r.recvall(timeout=2)
-            if tail:
-                print("FINAL:\n", tail.decode(errors='ignore'))
-        except Exception:
-            pass
-
-    finally:
-        r.close()
-        print("connection closed (total elapsed %.3fs)" % (time.time()-tstart))
+def main():
+    '''
+    remote(hostname, port) opens a socket and returns an object
+    that can be used to send and receive data on the socket  
+    '''
+    # Receive data from the server
+    data = r.recvuntil(b"iniziare ...")
+    print(data)
+    # Send the newline
+    r.sendline(b"")
+    # Run a for loop to complete the steps
+    for x in range(1,11):
+        print(f"=====STEP {x}=====")
+        list = recv_isolate_num_list()
+        add = add_numbers(list)
+        send = send_answer(add)
+ 
+    # Receive the flag
+    last_data = r.recv(1024)
+    print(last_data)
+    last_data2 = r.recv(1024)
+    print(last_data2)
+    r.close()
 
 if __name__ == "__main__":
-    run_fast()
+    main()
