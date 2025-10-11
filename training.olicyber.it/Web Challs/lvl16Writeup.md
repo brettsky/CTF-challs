@@ -21,7 +21,7 @@ wget --no-clobber --no-parent --spider -r http://web-16.challs.olicyber.it/ 2>&1
 We then got a list of urls and wrote lvl16-Brett.py to parse through each webpage using get requests and regex to find the flag. 
 
 
-'''
+```
 import requests
 import re
 
@@ -43,4 +43,4 @@ for url in iter_urls():
         print(flags)
     except requests.RequestException:
         print([])
-'''
+```
