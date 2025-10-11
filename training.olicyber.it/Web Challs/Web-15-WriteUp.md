@@ -6,4 +6,5 @@ I use wget cat and grep to get the files associated with that url
 
 It automatically uses grep to find the flag 
 
-![Level 15 screenshot](https://raw.githubusercontent.com/brettsky/CTF-challs/main/training.olicyber.it/Web%20Challs/screenshots/Level15ScreenShot.png)
+![Level 15 screenshot](screenshots/Level15ScreenShot.png)
+
