@@ -2,7 +2,7 @@ Challenge Desc
 
 The fundamental characteristic of a hypertext is that its pages contain hyperlinks to other pages, in a network of mutual references called the Web.
 
-In this challenge, a network of pages can be reached via the URL http://web-16.challs.olicyber.it/. The flag is contained within the title ( <h1>) of one of these pages. The goal is to automatically traverse the network of pages until reaching the one containing the flag.
+In this challenge, a network of pages can be reached via the URL http://web-16.challs.olicyber.it/. The flag is contained within the title ( h1) of one of these pages. The goal is to automatically traverse the network of pages until reaching the one containing the flag.
 
 It is recommended to use the find_alllibrary method BeautifulSoupto isolate the tags <a>and extract the destination address from the attribute href, and to keep a set of the visited pages so as not to analyze them more than once, to avoid creating unnecessary load on the server being analyzed and to avoid being trapped in an infinite loop in case two or more pages were to link to each other.
 
