@@ -4,5 +4,6 @@ wget -r -l 1 -np http://web-15.challs.olicyber.it/ | cat web-15.challs.olicyber.
 
 I use wget cat and grep to get the files associated with that url 
 
-I then manually looked through the 4 downloaded files to find it in dynamic.js "http://web-15.challs.olicyber.it/dynamic.js
-"flag{5n00ping_4r0und}
+It automatically uses grep to find the flag 
+
+![plot](C:\Users\OWNER\CTF-challs\training.olicyber.it\Web Challs\Level15ScreenShot.png)
