@@ -39,7 +39,9 @@ Using the command to connect we get the message
  Send any character to start ...
 
 
-We complete the ten steps in software-17_given.py
+We now know that the challenge is to add up a list of numbers 10 times in 10 seconds to recieve the flag
+
+We are give script.py for some examples of how to interact with a remote server using pwn tools
 
 And get the flag flag{455b7c904a9fb4a6}
 
