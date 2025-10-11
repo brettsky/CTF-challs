@@ -19,3 +19,30 @@ wget --no-clobber --no-parent --spider -r http://web-16.challs.olicyber.it/ 2>&1
 
 
 We then got a list of urls and wrote lvl16-Brett.py to parse through each webpage using get requests and regex to find the flag. 
+
+
+'''
+
+import requests
+import re
+
+
+def iter_urls(file_path: str = 'urls2.txt'):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            url = line.strip()
+            if not url or url.startswith('#'):
+                continue
+            yield url
+
+
+for url in iter_urls():
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        flags = re.findall(r'flag\{[^}]+\}', response.text)
+        print(flags)
+    except requests.RequestException:
+        print([])
+        
+'''
