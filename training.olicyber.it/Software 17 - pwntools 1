@@ -43,6 +43,19 @@ We complete the ten steps in software-17_given.py
 
 And get the flag flag{455b7c904a9fb4a6}
 
+ PS C:\Users\OWNER\CTF-challs\training.olicyber.it> & C:/Users/OWNER/AppData/Local/Microsoft/WindowsApps/python3.12.exe c:/Users/OWNER/CTF-challs/training.olicyber.it/software-17_given.py
+[1] answered -13228 (elapsed 0.505s)
+[2] answered 35047 (elapsed 0.645s)
+[3] answered 52537 (elapsed 0.967s)
+[4] answered 87893 (elapsed 1.290s)
+[5] answered -74334 (elapsed 1.430s)
+[6] answered 19334 (elapsed 1.752s)
+[7] answered -47389 (elapsed 1.891s)
+[8] answered 23938 (elapsed 2.213s)
+[9] answered -2339 (elapsed 2.533s)
+[10] answered -47520 (elapsed 2.852s)
+FINAL:
+ [+] Congratulazioni! Ecco la flag : flag{455b7c904a9fb4a6}
 
 
 
