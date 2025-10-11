@@ -22,7 +22,6 @@ We then got a list of urls and wrote lvl16-Brett.py to parse through each webpag
 
 
 '''
-
 import requests
 import re
 
@@ -44,5 +43,4 @@ for url in iter_urls():
         print(flags)
     except requests.RequestException:
         print([])
-        
 '''
