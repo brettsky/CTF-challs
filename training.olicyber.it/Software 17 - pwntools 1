@@ -1,0 +1,48 @@
+"https://training.olicyber.it/challenges#challenge-287" 
+
+Typically when facing pwn challenges it is common to interact with a program running remotely on a server.
+
+To make writing solutions easier, you can use pwntools , a Python library that offers several features, such as:
+
+Tubes : I/O wrapper for remote connections or local binaries
+Packing : Conversions between numbers and bytes in little/big endian
+ELFs : Load and parse ELFs directly from Python
+Assembly : Assemble code on the fly
+GDB Debug: Debuggare programmi con gdb
+pwntoolsIt therefore allows us to write Python scripts that interact with a service locally or remotely.
+
+To install pwntools on Ubuntu you can run the following commands from the command line:
+
+
+$ apt install python3 python3-pip python3-dev
+$ pip3 install pwntools
+In this challenge, you are asked to connect to a remote server and solve some simple arithmetic expressions.
+
+Among the attachments you will find a python file script.pythat uses the library pwntoolsand some examples of interaction with a remote server.
+
+You can connect to the remote service with the command:
+
+nc software-17.challs.olicyber.it 13000
+
+We are given the following script to start "software-17_given.py" 
+
+
+
+
+Using the command to connect we get the message 
+
+* Welcome to the first Pwntools challenge                          *
+* You will receive a list of numbers, add them up and give me the result   *
+* If you are fast enough, you will get the flag                      *
+* You will have to complete 10 steps in 10 seconds                      *
+************************************** ***************************...
+ Send any character to start ...
+
+
+We complete the ten steps in software-17_given.py
+
+And get the flag flag{455b7c904a9fb4a6}
+
+
+
+
