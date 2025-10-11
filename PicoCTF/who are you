@@ -83,7 +83,7 @@ And we FINALLY get the flag picoCTF{http_h34d3rs_v3ry_c0Ol_much_w0w_b22d773c}<
 
 
 
-
+in this challenge we had to send a chain of curl commands and learned about a few types of the many http headers. 
 
 
 
