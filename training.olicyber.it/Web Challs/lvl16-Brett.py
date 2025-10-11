@@ -2,7 +2,7 @@ import requests
 import re
 
 
-def iter_urls(file_path: str = 'urls.txt'):
+def iter_urls(file_path: str = 'urls2.txt'):
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
             url = line.strip()
