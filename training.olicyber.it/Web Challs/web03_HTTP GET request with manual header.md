@@ -17,4 +17,6 @@ and
 response = requests.get(url, headers=headers)
 ```
 
-Are the main learning from this challenge. We learned about the headers keyword in the requests module and how to send a custom header. Without sending this header we recieve an unauthorized error,
+Are the main learning from this challenge. We learned about the headers keyword in the requests module and how to send a custom header. Without sending this header we recieve an unauthorized error, 
+
+As the name implies we sent an http request with a manually set header. This proves that these headers cannot be trusted for websecurity as they can be modified by the user.
