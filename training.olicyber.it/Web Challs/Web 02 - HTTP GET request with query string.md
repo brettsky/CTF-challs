@@ -12,4 +12,6 @@ params = {"id": "flag"} # this line sets the params variable to the server
 response = requests.get(url, params=params) # this line sends a get request to the server with the params
 ```
 
-Those two lines are the only difference from level 1. We set the params varaible equal to 
+Those two lines are the only difference from level 1. We set the params varaible equal to the dictonary value id : flag 
+
+when we send the response again we add params=params this sends the parameter values to the server.
