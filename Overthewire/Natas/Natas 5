@@ -7,11 +7,11 @@ This challenge is all about cookies.
 Navigating to our developer tools we can see a cookie value for loggedin
 it is currently set to 0, we can assume this means "False" Setting it to 1 and reloading gives us the pass
 
-we can also use curl to see the cookies being sent to us: curl -v -u natas5:0n35PkggAPm2zbEpOU802c0x0Msn1ToK  http://natas5.natas.labs.overthewire.org/
+we can also use curl to see the cookies being sent to us: curl -v -u natas5:*************  http://natas5.natas.labs.overthewire.org/
 
 gives the output Set-Cookie: loggedin=0
 
-another curl command with the header  curl -v -b "loggedin=1" -u natas5:0n35PkggAPm2zbEpOU802c0x0Msn1ToK http://natas5.natas.labs.overthewire.org/
+another curl command with the header  curl -v -b "loggedin=1" -u natas5:***************** http://natas5.natas.labs.overthewire.org/
 
 gives us the pass for natas6 
 
