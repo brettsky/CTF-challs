@@ -7,7 +7,7 @@ Access disallowed. You are visiting from "" while authorized users should come o
 We can use the curl command to see headers being sent to server 
 
 
-curl -v -u natas4:*************** http://natas4.natas.labs.overthewire.org/
+curl -v -u natas4:QryZXc2e0zahULdHrtHxzyYkj59kUxLQ http://natas4.natas.labs.overthewire.org/
 
 
 HTTP Headers can be modified by the user before being sent 
@@ -17,9 +17,7 @@ This challenge is using the referr http header as  security
 
 To add the correct referr header we can use what the error code gives us and modify our curl command
 
-curl -v -u natas4:************* -H "Referer:curl -v -u natas4:*********** http://natas4.natas.labs.overthewire.org/
-"http://natas4.natas.labs.overthewire.org/
-
+curl -v -u natas4:QryZXc2e0zahULdHrtHxzyYkj59kUxLQ -H "Referer:http://natas5.natas.labs.overthewire.org/"
 
 <!-- This stuff in the header has nothing to do with the level -->
 <link rel="stylesheet" type="text/css" href="http://natas.labs.overthewire.org/css/level.css">
