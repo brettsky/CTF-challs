@@ -1,0 +1,5 @@
+application/x-www-form-urlencoded, despite its historical diffusion, is an obsolete format and not very suitable for representing structured data, which is why it has been gradually supplanted, in those applications that do not require compatibility with the traditional web form submission mechanism, by more modern formats such as XMLand JSON.
+
+The latter, in particular, by virtue of its ease of use in JavaScript, the most widespread web programming language, has quickly established itself as the new de-facto standard, so libraries like requestsoffer shortcuts for sending POST requests with body encoded in JSONas easily as the old system, as well as automatically decoding any resources returned in that format by the server in responses.
+
+Similar to the previous one, the goal of this challenge is to send a POST request to the resource, http://web-09.challs.olicyber.it/loginproviding JSON the "username": "admin" and "password": "admin" values ​​in the format, similar to a hypothetical login operation against a web service. The flag will be returned in the response text.
