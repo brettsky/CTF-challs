@@ -25,4 +25,4 @@ def get_flag_piece(index):
 
 csrf = get_csrf_token()
 for i in range(4):
-    print(get_flag_piece(i), end="")
+    print(get_flag_piece(i) )
