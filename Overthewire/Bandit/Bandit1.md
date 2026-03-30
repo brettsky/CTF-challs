@@ -3,3 +3,6 @@ SSH into the machine using the password from bandit 0 and cat the file '-'. To d
 ```
 cat ./-
 ```
+
+cat ./- 
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
